@@ -1,7 +1,7 @@
 {
   "name": "grunt-clean-translate",
   "description": "Use to determine which translatioon keys are missing or stale.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "homepage": "https://github.com/vietnogi/grunt-clean-translate",
   "author": {
     "name": "Alex Tran",
