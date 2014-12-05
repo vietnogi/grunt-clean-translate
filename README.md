@@ -63,9 +63,9 @@ grunt.initConfig({
       options: {
         translationFile: 'en.json',
         matches: [
-          new RegExp('translate="(.*)"', 'gi'),
-          new RegExp("'(.*)' \\\| translate", 'gi'),
-          new RegExp("i18n.t\\\('(.*)'", 'gi')
+          new RegExp('translate="([A-Za-z0-9_\\\.]+)*"', 'gi'),
+          new RegExp("'([A-Za-z0-9_\\\.]+)*' \\\| translate", 'gi'),
+          new RegExp("i18n.t\\\('([A-Za-z0-9_\\\.]+)*'", 'gi')
         ]
       },
       files: {
