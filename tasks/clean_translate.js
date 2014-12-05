@@ -49,7 +49,7 @@ module.exports = function(grunt) {
   // Please see the Grunt documentation for more information regarding task
   // creation: http://gruntjs.com/creating-tasks
 
-  grunt.registerMultiTask('clean_translate', 'GUse to determine which translatioon keys are missing or stale.', function() {
+  grunt.registerMultiTask('clean_translate', 'Use to determine which translation keys are missing or stale.', function() {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
       translationFile: null,

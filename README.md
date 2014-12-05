@@ -1,6 +1,6 @@
 # grunt-clean-translate
 
-> GUse to determine which translatioon keys are missing or stale.
+> Use to determine which translation keys are missing or stale.
 
 ## Getting Started
 This plugin requires Grunt `~0.4.5`
