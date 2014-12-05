@@ -30,7 +30,7 @@ module.exports = function(grunt) {
 
     // Configuration to be run (and then tested).
     clean_translate: {
-      default_options: {
+      en: {
         options: {
           translationFile: 'test/fixtures/en.json',
           matches: [
@@ -43,16 +43,6 @@ module.exports = function(grunt) {
           'tmp': ['test/fixtures/testing.js', 'test/fixtures/123.html']
         }
       }
-      // ,
-      // custom_options: {
-      //   options: {
-      //     separator: ': ',
-      //     punctuation: ' !!!'
-      //   },
-      //   files: {
-      //     'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
-      //   }
-      // }
     },
 
     // Unit tests.

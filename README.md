@@ -37,47 +37,41 @@ grunt.initConfig({
 
 ### Options
 
-#### options.separator
+#### options.translationFile
 Type: `String`
-Default value: `',  '`
+Default value: null
+Required
 
-A string value that is used to do something with whatever.
+A string value that is the path to the json file of your translations.
 
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
+#### options.matches
+Type: `Array`
+Default value: []
+Required
 
-A string value that is used to do something else with whatever else.
+An array of regular expression for matching in your source.
 
 ### Usage Examples
 
 #### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
+In this example, we are checking a JS/HTML with and comparing it with keys found in the `en.json` file.  The results will be saved to the tmp folder.
 
 ```js
 grunt.initConfig({
   clean_translate: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-});
-```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
-grunt.initConfig({
-  clean_translate: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
+    en: {
+      options: {
+        translationFile: 'en.json',
+        matches: [
+          new RegExp('translate="(.*)"', 'gi'),
+          new RegExp("'(.*)' \\\| translate", 'gi'),
+          new RegExp("i18n.t\\\('(.*)'", 'gi')
+        ]
+      },
+      files: {
+        'tmp': ['testing.js', '123.html']
+      }
+    }
   },
 });
 ```
