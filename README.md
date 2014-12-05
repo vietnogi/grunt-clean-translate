@@ -1,4 +1,4 @@
-# grunt-compare-translate
+# grunt-clean-translate
 
 > GUse to determine which translatioon keys are missing or stale.
 
@@ -8,23 +8,23 @@ This plugin requires Grunt `~0.4.5`
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
 ```shell
-npm install grunt-compare-translate --save-dev
+npm install grunt-clean-translate --save-dev
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
 ```js
-grunt.loadNpmTasks('grunt-compare-translate');
+grunt.loadNpmTasks('grunt-clean-translate');
 ```
 
-## The "compare_translate" task
+## The "clean_translate" task
 
 ### Overview
-In your project's Gruntfile, add a section named `compare_translate` to the data object passed into `grunt.initConfig()`.
+In your project's Gruntfile, add a section named `clean_translate` to the data object passed into `grunt.initConfig()`.
 
 ```js
 grunt.initConfig({
-  compare_translate: {
+  clean_translate: {
     options: {
       // Task-specific options go here.
     },
@@ -56,7 +56,7 @@ In this example, the default options are used to do something with whatever. So 
 
 ```js
 grunt.initConfig({
-  compare_translate: {
+  clean_translate: {
     options: {},
     files: {
       'dest/default_options': ['src/testing', 'src/123'],
@@ -70,7 +70,7 @@ In this example, custom options are used to do something else with whatever else
 
 ```js
 grunt.initConfig({
-  compare_translate: {
+  clean_translate: {
     options: {
       separator: ': ',
       punctuation: ' !!!',

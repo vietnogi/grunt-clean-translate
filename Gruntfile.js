@@ -1,6 +1,6 @@
 /*
- * grunt-compare-translate
- * https://github.com/vietnogi/grunt-compare-translate
+ * grunt-clean-translate
+ * https://github.com/vietnogi/grunt-clean-translate
  *
  * Copyright (c) 2014 Alex Tran
  * Licensed under the MIT license.
@@ -29,23 +29,30 @@ module.exports = function(grunt) {
     },
 
     // Configuration to be run (and then tested).
-    compare_translate: {
+    clean_translate: {
       default_options: {
         options: {
+          translationFile: 'test/fixtures/en.json',
+          matches: [
+            new RegExp('translate="(.*)"', 'gi'),
+            new RegExp("'(.*)' \\\| translate", 'gi'),
+            new RegExp("i18n.t\\\('(.*)'", 'gi')
+          ]
         },
         files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
-      },
-      custom_options: {
-        options: {
-          separator: ': ',
-          punctuation: ' !!!'
-        },
-        files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
+          'tmp': ['test/fixtures/testing.js', 'test/fixtures/123.html']
         }
       }
+      // ,
+      // custom_options: {
+      //   options: {
+      //     separator: ': ',
+      //     punctuation: ' !!!'
+      //   },
+      //   files: {
+      //     'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
+      //   }
+      // }
     },
 
     // Unit tests.
@@ -62,12 +69,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-nodeunit');
+  grunt.loadNpmTasks('grunt-debug-task');
 
   // Whenever the "test" task is run, first clean the "tmp" dir, then run this
   // plugin's task(s), then test the result.
-  grunt.registerTask('test', ['clean', 'compare_translate', 'nodeunit']);
+  grunt.registerTask('test', ['clean', 'clean_translate', 'nodeunit']);
 
   // By default, lint and run all tests.
-  grunt.registerTask('default', ['jshint', 'test']);
-
+  //grunt.registerTask('default', ['jshint', 'test']);
+  grunt.registerTask('default', ['test']);
 };

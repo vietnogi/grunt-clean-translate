@@ -22,27 +22,27 @@ var grunt = require('grunt');
     test.ifError(value)
 */
 
-exports.compare_translate = {
+exports.clean_translate = {
   setUp: function(done) {
     // setup here if necessary
     done();
   },
-  default_options: function(test) {
+  missing: function(test) {
     test.expect(1);
 
-    var actual = grunt.file.read('tmp/default_options');
-    var expected = grunt.file.read('test/expected/default_options');
-    test.equal(actual, expected, 'should describe what the default behavior is.');
+    var actual = grunt.file.read('tmp/missing_keys');
+    var expected = grunt.file.read('test/expected/missing_keys');
+    test.equal(actual, expected, 'should list missing keys.');
 
     test.done();
   },
-  custom_options: function(test) {
+  stale: function(test) {
     test.expect(1);
 
-    var actual = grunt.file.read('tmp/custom_options');
-    var expected = grunt.file.read('test/expected/custom_options');
-    test.equal(actual, expected, 'should describe what the custom option(s) behavior is.');
+    var actual = grunt.file.read('tmp/stale_keys');
+    var expected = grunt.file.read('test/expected/stale_keys');
+    test.equal(actual, expected, 'should list stale keys.');
 
     test.done();
-  },
+  }
 };
